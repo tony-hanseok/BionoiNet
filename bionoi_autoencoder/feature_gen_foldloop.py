@@ -30,7 +30,7 @@ from os import listdir
 from os.path import isfile, join, isdir
 from utils import UnsuperviseDataset, ConvAutoencoder_conv1x1
 from helper import imshow
-from dataset_statistics import dataSetStatistics
+from dataset_statistics import dataset_statistics
 import tarfile
 import shutil
 
@@ -171,7 +171,7 @@ if __name__ == "__main__":
             data_dir = tar_extract_path + tar_name + '/' + fold_lst[i] + '/' + phase + '/'
 
             # data configuration
-            statistics = dataSetStatistics(data_dir, 128, num_data)
+            statistics = dataset_statistics(data_dir, 128, num_data)
             data_mean = statistics[0].tolist()
             data_std = statistics[1].tolist()
 

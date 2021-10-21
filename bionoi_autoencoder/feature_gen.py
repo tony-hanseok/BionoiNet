@@ -12,7 +12,7 @@ import os
 from os import listdir
 from os.path import isfile, join, isdir
 from utils import UnsuperviseDataset, ConvAutoencoder_conv1x1
-from dataset_statistics import dataSetStatistics
+from dataset_statistics import dataset_statistics
 
 def getArgs():
     parser = argparse.ArgumentParser('python')
@@ -115,7 +115,7 @@ if __name__ == "__main__":
         #--------------------model configuration ends--------------------------
 
     # data configuration
-    statistics = dataSetStatistics(data_dir, 128, num_data)
+    statistics = dataset_statistics(data_dir, 128, num_data)
     data_mean = statistics[0].tolist()
     data_std = statistics[1].tolist()
 

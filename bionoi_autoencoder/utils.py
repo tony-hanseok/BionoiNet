@@ -339,7 +339,7 @@ class ConvAutoencoder_deeper1(nn.Module):
 		x = self.decode(x)
 		return x
 
-def train(device, num_epochs, dataloader, model, criterion, optimizer, learningRateScheduler):
+def train(device, num_epochs, dataloader, model, criterion, optimizer, lr_scheduler):
 	"""
 	Train the autoencoder
 	"""
@@ -377,7 +377,7 @@ def train(device, num_epochs, dataloader, model, criterion, optimizer, learningR
 		if epoch_loss <= best_loss:
 			best_loss = epoch_loss
 			best_model_wts = copy.deepcopy(model.state_dict())
-		learningRateScheduler.step()
+		lr_scheduler.step()
 
 		time_elapsed = time.time() - since
 		print( 'epoch complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))

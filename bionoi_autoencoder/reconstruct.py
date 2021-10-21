@@ -20,7 +20,7 @@ from utils import ConvAutoencoder_dense_out
 from utils import ConvAutoencoder_conv1x1
 from utils import ConvAutoencoder_conv1x1_layertest
 from utils import ConvAutoencoder_deeper1
-from dataset_statistics import dataSetStatistics
+from dataset_statistics import dataset_statistics
 
 def getArgs():
     parser = argparse.ArgumentParser('python')
@@ -80,7 +80,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print('Current device: '+str(device))
 
 # Normalizing data and transforming images to tensors
-statistics = dataSetStatistics(data_dir, 128, num_data)
+statistics = dataset_statistics(data_dir, 128, num_data)
 data_mean = statistics[0].tolist()
 data_std = statistics[1].tolist()
 

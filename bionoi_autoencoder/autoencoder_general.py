@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 from utils import UnsuperviseDataset, train, DenseAutoencoder, ConvAutoencoder, ConvAutoencoder_dense_out
 from utils import ConvAutoencoder_conv1x1, ConvAutoencoder_deeper1
 from helper import imshow, list_plot
-from dataset_statistics import dataSetStatistics
+from dataset_statistics import dataset_statistics
 
 
 def getArgs():
@@ -95,7 +95,7 @@ if __name__ == "__main__":
 
     # define a transform with mean and std, another transform without them.
     # statistics obtained from dataset_statistics.py
-    statistics = dataSetStatistics(data_dir, 128, num_data)
+    statistics = dataset_statistics(data_dir, 128, num_data)
     data_mean = statistics[0].tolist()
     data_std = statistics[1].tolist()
 
@@ -389,7 +389,7 @@ if __name__ == "__main__":
                                               model=model,
                                               criterion=criterion,
                                               optimizer=optimizer,
-                                              learningRateScheduler=learningRateScheduler)
+                                              lr_scheduler=learningRateScheduler)
 
     # save the model
     torch.save(trained_model.state_dict(), model_file)

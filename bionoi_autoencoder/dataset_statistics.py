@@ -31,7 +31,7 @@ def getArgs():
 
     return parser.parse_args()
 
-def dataSetStatistics(data_dir, batch_size, num_data):
+def dataset_statistics(data_dir, batch_size, num_data):
     # Detect if we have a GPU available
     # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     # print('Current device: '+str(device))
@@ -82,4 +82,4 @@ if __name__ == "__main__":
     data_dir = args.data_dir
     batch_size = args.batch_size
     num_data = args.num_data
-    dataSetStatistics(data_dir, batch_size, num_data)
+    dataset_statistics(data_dir, batch_size, num_data)

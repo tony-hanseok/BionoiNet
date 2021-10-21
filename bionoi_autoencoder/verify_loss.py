@@ -18,7 +18,7 @@ from utils import DenseAutoencoder
 from utils import ConvAutoencoder
 from utils import ConvAutoencoder_dense_out
 from utils import ConvAutoencoder_conv1x1
-from dataset_statistics import dataSetStatistics
+from dataset_statistics import dataset_statistics
 
 def getArgs():
     parser = argparse.ArgumentParser('python')
@@ -86,7 +86,7 @@ if __name__ == "__main__":
         model = nn.DataParallel(model)
     model.load_state_dict(torch.load(model_file))
 
-    statistics = dataSetStatistics(data_dir, 128, num_data)
+    statistics = dataset_statistics(data_dir, 128, num_data)
     data_mean = statistics[0].tolist()
     data_std = statistics[1].tolist()
 
