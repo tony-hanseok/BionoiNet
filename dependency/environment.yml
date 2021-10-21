@@ -1,4 +1,4 @@
-name: pytorch
+name: bionoi
 channels:
   - conda-forge
   - defaults
@@ -84,5 +84,6 @@ dependencies:
   - pip:
     - dask==1.2.2
     - torch==1.0.1
-prefix: /home/wshi6/miniconda3/envs/pytorch
+prefix: /home/tony/miniconda3/envs/bionoi
+
 

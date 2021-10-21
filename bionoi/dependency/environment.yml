@@ -87,5 +87,5 @@ dependencies:
   - pip:
     - objgraph==3.4.0
     - python-graphviz==0.10.1
-prefix: /home/wentao/.conda/envs/voronoi
+prefix: /home/tony/miniconda3/envs/voronoi
 
