@@ -322,7 +322,8 @@ def colorgen(colorby, valnorm_lst, cmap, dataset):
 
     # atom type and residue type colors are predetermined
     if colorby in ["atom_type", "residue_type"]:
-        color_map = "./cmaps/atom_cmap.csv" if colorby == "atom_type" else "./cmaps/res_hydro_cmap.csv"
+        # color_map = "./cmaps/atom_cmap.csv" if colorby == "atom_type" else "./cmaps/res_hydro_cmap.csv"
+        color_map = "./bionoi/cmaps/atom_cmap.csv" if colorby == "atom_type" else "./bionoi/cmaps/res_hydro_cmap.csv"
 
         # Check for color mapping file, make dict
         with open(color_map, "rt") as color_mapF:
@@ -578,19 +579,23 @@ def Bionoi(mol, pop, profile, bs_out, size, colorby, dpi, alpha, proj_direction)
 def get_args():
     parser = argparse.ArgumentParser('python')
     parser.add_argument('-mol',
-                        default="./testfiles/mol2/5iunE00.mol2",
+                        # default="./testfiles/mol2/5iunE00.mol2",
+                        default="/home/tony/sandbox/pdb/mol2/3D2R.mol2.processed",
                         required=False,
                         help='the protein/ligand mol2 file')
     parser.add_argument('-pop',
-                        default="./testfiles/popsa/5iunE.out",
+                        # default="./testfiles/popsa/5iunE.out",
+                        default="/home/tony/sandbox/pdb/bionoi/pop/3D2R.out",
                         required=False,
                         help='the protein file with qsasa values, used POPSlegacy')
     parser.add_argument('-profile',
-                        default="./testfiles/profile/5iunE.profile",
+                        # default="./testfiles/profile/5iunE.profile",
+                        default="/home/tony/sandbox/pdb/bionoi/profile/3D2R.profile",
                         required=False,
                         help='.profile file with sequence entropy data')
     parser.add_argument('-out',
-                        default="./output/",
+                        # default="./output/",
+                        default="/home/tony/sandbox/pdb/bionoi/output/",
                         required=False,
                         help='the folder of output images file')
     parser.add_argument('-dpi',

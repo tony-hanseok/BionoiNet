@@ -17,11 +17,11 @@ img_gen_folder(){
 
         # mol file
         mol=${mol_path##*/}
-        echo $mol
+	echo $mol
         
         # protein
         #protein=${mol::-9}
-        protein=${mol::${#mol}-9}
+	    protein=${mol::${#mol}-9}
 
         # pop file
         pop="${protein}.out"
@@ -44,7 +44,7 @@ img_gen_folder(){
         #echo $profile_path
 
         # execute
-        python bionoi.py -mol "$mol_path" -pop "$pop_path" -profile "$profile_path" -out "$output_folder" -colorby "$colorby" -direction 0 -rot_angle 0 -flip 0 
+        python /home/tony/gits/BionoiNet/bionoi/bionoi.py -mol "$mol_path" -pop "$pop_path" -profile "$profile_path" -out "$output_folder" -colorby "$colorby" -direction 0 -rot_angle 0 -flip 0 
     done
 }
 
@@ -57,7 +57,7 @@ do
     echo "input directory:"
     echo $input_dir
     input_files="$input_dir"/*
-    
+
     IFS='/' read -r -a array <<< "$input_dir"
     output_dir="${output_folder}${array[2]}/${array[3]}/"
     echo "output directory:"
